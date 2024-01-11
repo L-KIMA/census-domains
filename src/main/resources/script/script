@@ -64,3 +64,30 @@ alter table census.persons
 
 
 
+alter table lib.lenguage_knowledge_levels
+    rename to language_knowledge_levels;
+
+alter table lib.migration_settlement_typies
+    rename constraint migration_settlement_typies_pk to migration_settlement_typs_pk;
+
+alter table lib.migration_settlement_typies
+    rename to migration_settlement_typs;
+
+alter table lib.migration_settlement_typs
+    rename constraint migration_settlement_typs_pk to migration_settlement_types_pk;
+
+alter table lib.migration_settlement_typs
+    rename to migration_settlement_types;
+
+alter table lib.native_lenguages
+    rename constraint native_lenguages_pk to native_languages_pk;
+
+alter table lib.native_lenguages
+    rename to native_languages;
+
+alter table lib.traying_to_finde_payd_work_answers
+    rename constraint traying_to_finde_payd_work_answers_pk to trying_to_find_paid_work_answers_pk;
+
+alter table lib.traying_to_finde_payd_work_answers
+    rename to trying_to_find_paid_work_answers;
+
