@@ -91,3 +91,125 @@ alter table lib.traying_to_finde_payd_work_answers
 alter table lib.traying_to_finde_payd_work_answers
     rename to trying_to_find_paid_work_answers;
 
+
+alter table census.person_agriculture
+    add constraint person_agriculture_persons_id_fk
+        foreign key (person_id) references census.persons;
+
+
+
+
+// indexes
+
+create index houses_census_address_id_index
+    on census.houses (census_address_id);
+
+create index house_improvements_house_id_index
+    on census.house_improvements (house_id);
+
+create index person_agriculture_person_id_index
+    on census.person_agriculture (person_id);
+
+create index person_agriculture_animals_person_agriculture_id_index
+    on census.person_agriculture_animals (person_agriculture_id);
+
+create index person_agriculture_fruits_person_agriculture_land_id_index
+    on census.person_agriculture_fruits (person_agriculture_land_id);
+
+create index person_agriculture_land_total_amounts_person_agriculture_id_index
+    on census.person_agriculture_land_total_amounts (person_agriculture_id);
+
+
+create index person_agriculture_lands_person_agriculture_id_index
+    on census.person_agriculture_lands (person_agriculture_id);
+
+create index person_agriculture_plants_person_agriculture_land_id_index
+    on census.person_agriculture_plants (person_agriculture_land_id);
+
+
+create index person_citizenships_person_id_index
+    on census.person_citizenships (person_id);
+
+create index person_educations_person_id_index
+    on census.person_educations (person_id);
+
+create index person_employment_informations_person_id_index
+    on census.person_employment_informations (person_id);
+
+create index person_health_conditions_person_id_index
+    on census.person_health_conditions (person_id);
+
+create index person_house_use_types_person_id_index
+    on census.person_house_use_types (person_id);
+
+create index person_living_categories_person_id_index
+    on census.person_living_categories (person_id);
+
+create index person_living_category_temporary_address_person_living_category_id_index
+    on census.person_living_category_temporary_address (person_living_category_id);
+
+create index person_migration_informations_person_id_index
+    on census.person_migration_informations (person_id);
+
+create index person_nationalities_person_id_index
+    on census.person_nationalities (person_id);
+
+create index persons_house_id_index
+    on census.persons (house_id);
+
+create index houses_house_category_id_index
+    on census.houses (house_category_id);
+
+create index person_agriculture_animals_agriculture_animal_type_id_index
+    on census.person_agriculture_animals (agriculture_animal_type_id);
+
+create index person_agriculture_fruits_agriculture_fruit_type_id_index
+    on census.person_agriculture_fruits (agriculture_fruit_type_id);
+
+create index person_agriculture_land_total_amounts_land_property_type_id_index
+    on census.person_agriculture_land_total_amounts (land_property_type_id);
+
+create index person_agriculture_lands_land_property_type_id_index
+    on census.person_agriculture_lands (land_property_type_id);
+
+create index person_agriculture_plants_agriculture_plant_type_id_index
+    on census.person_agriculture_plants (agriculture_plant_type_id);
+
+create index person_educations_language_read_writing_level_id_index
+    on census.person_educations (language_read_writing_level_id);
+
+create index person_educations_language_speaking_level_id_index
+    on census.person_educations (language_speaking_level_id);
+
+
+create index person_employment_informations_agriculture_refuse_reason_id_index
+    on census.person_employment_informations (agriculture_refuse_reason_id);
+
+create index person_employment_informations_employment_type_id_index
+    on census.person_employment_informations (employment_type_id);
+
+create index person_employment_informations_self_employment_type_id_index
+    on census.person_employment_informations (self_employment_type_id);
+
+create index person_employment_informations_traying_to_finde_payd_work_answer_id_index
+    on census.person_employment_informations (traying_to_finde_payd_work_answer_id);
+
+
+create index person_health_conditions_hearing_condition_type_id_index
+    on census.person_health_conditions (hearing_condition_type_id);
+
+create index person_health_conditions_movement_condition_type_id_index
+    on census.person_health_conditions (movement_condition_type_id);
+
+create index person_health_conditions_movement_condition_type_id_index2
+    on census.person_health_conditions (movement_condition_type_id);
+
+create index person_health_conditions_self_care_condition_type_id_index
+    on census.person_health_conditions (self_care_condition_type_id);
+
+create index person_health_conditions_vision_condition_type_id_index
+    on census.person_health_conditions (vision_condition_type_id);
+
+create index census_addresses_address_id_index
+    on census.census_addresses (address_id);
+

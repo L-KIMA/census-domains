@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @Entity
@@ -35,4 +38,12 @@ public class PersonAgricultureLands {
 
     @Column(name = "land_property_type_id")
     private Integer landPropertyTypeId;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_agriculture_land_id")
+    private Set<PersonAgricultureFruit> personAgricultureFruits = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_agriculture_land_id")
+    private Set<PersonAgriculturePlant> personAgriculturePlants = new HashSet<>();
 }

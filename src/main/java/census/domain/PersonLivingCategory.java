@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @Entity
@@ -26,4 +29,8 @@ public class PersonLivingCategory {
 
     @Column(name = "reason")
     private String reason;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_living_category_id")
+    private Set<PersonLivingCategoryTemporaryAddress> personLivingCategoryTemporaryAddresses = new HashSet<>();
 }

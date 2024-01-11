@@ -37,4 +37,8 @@ public class PersonAgriculture {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "person_agriculture_id")
     private Set<PersonAgricultureLands> personAgricultureLands = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_agriculture_id")
+    private Set<PersonAgricultureLandTotalAmount> personAgricultureLandTotalAmounts = new HashSet<>();
 }

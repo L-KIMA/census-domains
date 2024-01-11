@@ -20,10 +20,14 @@ public interface CensusAddressRepository extends JpaRepository<CensusAddress, Lo
             "left join fetch person.personHealthConditions healthCondition " +
             "left join fetch person.personHouseUseTypes houseUseType " +
             "left join fetch person.personLivingCategories livingCategorie " +
+            "left join fetch livingCategorie.personLivingCategoryTemporaryAddresses livingCategoryTempAddress " +
             "left join fetch person.personMigrationInformations migrationInformation " +
             "left join fetch person.personNationalities nationalitie " +
             "left join fetch person.personAgricultures agriculture " +
             "left join fetch agriculture.personAgricultureAnimals agricultureAnimal " +
-            "left join fetch agriculture.personAgricultureLands agricultureLand ")
+            "left join fetch agriculture.personAgricultureLands agricultureLand " +
+            "left join fetch agriculture.personAgricultureLandTotalAmounts agricultureLandTotalAmount " +
+            "left join fetch agricultureLand.personAgricultureFruits agricultureFruit " +
+            "left join fetch agricultureLand.personAgriculturePlants agriculturePlant ")
     List<CensusAddress> getAddress();
 }

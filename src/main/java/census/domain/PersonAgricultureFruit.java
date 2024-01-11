@@ -15,8 +15,8 @@ public class PersonAgricultureFruit {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "person_agriculture_id")
-    private Long personAgricultureId;
+    @Column(name = "person_agriculture_land_id")
+    private Long personAgricultureLandId;
 
     @Column(name = "agriculture_fruit_type_id")
     private Integer agricultureFruitTypeId;
