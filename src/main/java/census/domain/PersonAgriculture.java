@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @Entity
@@ -26,4 +29,12 @@ public class PersonAgriculture {
 
     @Column(name = "has_any_aqueducts")
     private Boolean hasAnyAqueducts;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_agriculture_id")
+    private Set<PersonAgricultureAnimal> personAgricultureAnimals = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_agriculture_id")
+    private Set<PersonAgricultureLands> personAgricultureLands = new HashSet<>();
 }

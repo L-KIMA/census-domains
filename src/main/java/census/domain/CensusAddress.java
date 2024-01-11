@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -70,4 +72,8 @@ public class CensusAddress {
 
     @Column(name = "user_mapping_id")
     private Long userMappingId;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "census_address_id")
+    private Set<House> houses = new HashSet<>();
 }
