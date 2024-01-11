@@ -1,0 +1,66 @@
+alter table census.person_agricultura_ladns
+    rename constraint person_agricultura_ladns_pk to person_agriculture_ladns_pk;
+
+alter table census.person_agricultura_ladns
+    rename constraint person_agricultura_ladns_land_property_types_id_fk to person_agriculture_ladns_land_property_types_id_fk;
+
+alter table census.person_agricultura_ladns
+    rename to person_agriculture_ladns;
+
+
+alter table census.person_agriculture_ladns
+    rename column person_agricultura_id to person_agriculture_id;
+
+
+
+alter table census.person_agricultura_land_total_amounts
+    rename constraint person_agricultura_land_total_amounts_pk to person_agriculture_land_total_amounts_pk;
+
+alter table census.person_agricultura_land_total_amounts
+    rename constraint person_agricultura_land_total_amounts_land_property_types_id_fk to person_agriculture_land_total_amounts_land_property_types_id_fk;
+
+alter table census.person_agricultura_land_total_amounts
+    rename constraint person_agricultura_land_total_amounts_person_agricultures_id_fk to person_agriculture_land_total_amounts_person_agricultures_id_fk;
+
+alter table census.person_agricultura_land_total_amounts
+    rename to person_agriculture_land_total_amounts;
+
+alter table census.person_agriculture_ladns
+    rename to person_agriculture_lands;
+
+
+alter table census.person_agricultures
+    rename to person_agriculture;
+
+
+
+alter table census.person_agricultures
+    rename column has_any_agricultura to has_any_agriculture;
+
+
+    alter table census.person_educations
+    rename column native_lenguage_id to native_language_id;
+
+alter table census.person_educations
+    rename column native_lenguage_name to native_language_name;
+
+alter table census.person_educations
+    rename column lenguage_speaking_level_id to language_speaking_level_id;
+
+alter table census.person_educations
+    rename column lenguage_read_writing_level_id to language_read_writing_level_id;
+
+
+alter table census.person_migration_informations
+    rename column georgia_another_state_livied_address to georgia_another_state_lived_address;
+
+alter table census.person_migration_informations
+    rename column foreign_state_livied_address to foreign_state_lived_address;
+
+
+
+alter table census.persons
+    rename column aliving_number_of_children to alive_number_of_children;
+
+
+
