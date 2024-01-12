@@ -16,6 +16,10 @@ public class CensusService {
         return censusAddressRepository.getAddress();
     }
 
+    public List<CensusAddress> getAdd() {
+        return censusAddressRepository.getCensusAdd();
+    }
+
     @Autowired
     public void setCensusAddressRepository(CensusAddressRepository censusAddressRepository) {
         this.censusAddressRepository = censusAddressRepository;

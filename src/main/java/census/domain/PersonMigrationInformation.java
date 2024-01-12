@@ -1,5 +1,8 @@
 package census.domain;
 
+import census.domain.lib.ImmigrationArrivedReason;
+import census.domain.lib.MigrationLivingReason;
+import census.domain.lib.MigrationSettlementType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,14 +27,16 @@ public class PersonMigrationInformation {
     @Column(name = "georgia_another_state_lived_address")
     private String georgiaAnotherStateLivedAddress;
 
-    @Column(name = "settlement_type_id")
-    private Integer settlementTypeId;
+    @ManyToOne
+    @JoinColumn(name = "settlement_type_id")
+    private MigrationSettlementType settlementType;
 
     @Column(name = "starting_living_year")
     private Integer startingLivingYear;
 
-    @Column(name = "migration_living_reason_id")
-    private Integer migrationLivingReasonId;
+    @ManyToOne
+    @JoinColumn(name = "migration_living_reason_id")
+    private MigrationLivingReason migrationLivingReason;
 
     @Column(name = "migration_living_reason_name")
     private String migrationLivingReasonName;
@@ -45,8 +50,9 @@ public class PersonMigrationInformation {
     @Column(name = "immigration_arrived_year")
     private Integer immigrationArrivedYear;
 
-    @Column(name = "immigration_arrived_reason_id")
-    private Integer immigrationArrivedReasonId;
+    @ManyToOne
+    @JoinColumn(name = "immigration_arrived_reason_id")
+    private ImmigrationArrivedReason immigrationArrivedReason;
 
     @Column(name = "immigration_arrived_reason_name")
     private String immigrationArrivedReasonName;

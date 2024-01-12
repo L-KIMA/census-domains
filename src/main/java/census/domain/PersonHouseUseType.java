@@ -1,5 +1,6 @@
 package census.domain;
 
+import census.domain.lib.HouseUseType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,8 +19,9 @@ public class PersonHouseUseType {
     @Column(name = "person_id")
     private Long personId;
 
-    @Column(name = "house_use_type_id")
-    private Integer houseUseTypeId;
+    @ManyToOne
+    @JoinColumn(name = "house_use_type_id")
+    private HouseUseType houseUseType;
 
     @Column(name = "roms_number")
     private Integer romsNumber;

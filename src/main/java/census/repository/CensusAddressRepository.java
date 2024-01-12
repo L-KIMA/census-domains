@@ -1,6 +1,7 @@
 package census.repository;
 
 import census.domain.CensusAddress;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -30,4 +31,22 @@ public interface CensusAddressRepository extends JpaRepository<CensusAddress, Lo
             "left join fetch agricultureLand.personAgricultureFruits agricultureFruit " +
             "left join fetch agricultureLand.personAgriculturePlants agriculturePlant ")
     List<CensusAddress> getAddress();
+
+    @EntityGraph(attributePaths = {
+            "houses",
+            "houses.persons",
+            "houses.houseImprovements",
+            "houses.persons.personAgricultures",
+            "houses.persons.personCitizenships",
+            "houses.persons.personEducations",
+            "houses.persons.personEmploymentInformations",
+            "houses.persons.personHealthConditions",
+            "houses.persons.personHouseUseTypes",
+            "houses.persons.personLivingCategories",
+            "houses.persons.personMigrationInformations",
+            "houses.persons.personNationalities"
+    })
+
+    @Query("select distinct a from CensusAddress a ")
+    List<CensusAddress> getCensusAdd();
 }

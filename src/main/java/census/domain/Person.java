@@ -1,5 +1,7 @@
 package census.domain;
 
+import census.domain.lib.MarriageStatus;
+import census.domain.lib.Religion;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -46,14 +48,16 @@ public class Person {
     @Column(name = "birth_place_foreign")
     private String birthPlaceForeign;
 
-    @Column(name = "religion_id")
-    private Integer religionId;
+    @ManyToOne
+    @JoinColumn(name = "religion_id")
+    private Religion religion;
 
     @Column(name = "religion_name")
     private String religionName;
 
-    @Column(name = "marriage_status_id")
-    private Integer marriageStatusId;
+    @ManyToOne
+    @JoinColumn(name = "marriage_status_id")
+    private MarriageStatus marriageStatus;
 
     @Column(name = "number_of_children")
     private Integer numberOfChildren;

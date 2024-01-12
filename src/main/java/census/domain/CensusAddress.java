@@ -1,5 +1,6 @@
 package census.domain;
 
+import census.domain.lib.CensusStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -55,8 +56,9 @@ public class CensusAddress {
     @Column(name = "location_code")
     private String locationCode;
 
-    @Column(name = "census_status_id")
-    private Integer censusStatusId;
+    @ManyToOne
+    @JoinColumn(name = "census_status_id")
+    private CensusStatus status;
 
     @Column(name = "user_id")
     private Long userId;

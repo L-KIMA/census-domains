@@ -1,5 +1,6 @@
 package census.domain;
 
+import census.domain.lib.HealthConditionType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,18 +19,23 @@ public class PersonHealthCondition {
     @Column(name = "person_id")
     private Long personId;
 
-    @Column(name = "vision_condition_type_id")
-    private Integer visionConditionTypeId;
+    @ManyToOne
+    @JoinColumn(name = "vision_condition_type_id")
+    private HealthConditionType visionConditionType;
 
-    @Column(name = "movement_condition_type_id")
-    private Integer movementConditionTypeId;
+    @ManyToOne
+    @JoinColumn(name = "movement_condition_type_id")
+    private HealthConditionType movementConditionType;
 
-    @Column(name = "hearing_condition_type_id")
-    private Integer hearingConditionTypeId;
+    @ManyToOne
+    @JoinColumn(name = "hearing_condition_type_id")
+    private HealthConditionType hearingConditionType;
 
-    @Column(name = "memory_condition_type_id")
-    private Integer memoryConditionTypeId;
+    @ManyToOne
+    @JoinColumn(name = "memory_condition_type_id")
+    private HealthConditionType memoryConditionType;
 
-    @Column(name = "self_care_condition_type_id")
-    private Integer selfCareConditionTypeId;
+    @ManyToOne
+    @JoinColumn(name = "self_care_condition_type_id")
+    private HealthConditionType selfCareConditionType;
 }

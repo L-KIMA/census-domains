@@ -1,5 +1,6 @@
 package census.domain;
 
+import census.domain.lib.LivingCategory;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,8 +22,9 @@ public class PersonLivingCategory {
     @Column(name = "person_id")
     private Long personId;
 
-    @Column(name = "living_category_id")
-    private Integer livingCategoryId;
+    @ManyToOne
+    @JoinColumn(name = "living_category_id")
+    private LivingCategory livingCategory;
 
     @Column(name = "duration")
     private Integer duration;

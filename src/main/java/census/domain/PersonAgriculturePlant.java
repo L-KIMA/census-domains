@@ -1,5 +1,6 @@
 package census.domain;
 
+import census.domain.lib.AgriculturePlantType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,8 +19,9 @@ public class PersonAgriculturePlant {
     @Column(name = "person_agriculture_land_id")
     private Long personAgricultureLandId;
 
-    @Column(name = "agriculture_plant_type_id")
-    private Integer agriculturePlantTypeId;
+    @ManyToOne
+    @JoinColumn(name = "agriculture_plant_type_id")
+    private AgriculturePlantType agriculturePlantType;
 
     @Column(name = "area_amount")
     private Double areaAmount;

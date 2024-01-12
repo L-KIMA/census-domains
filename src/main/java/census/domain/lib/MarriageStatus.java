@@ -6,11 +6,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "marriage_statusies", schema = "lib")
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class MarriageStatus {
 
     @Id

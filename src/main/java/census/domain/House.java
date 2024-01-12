@@ -1,5 +1,6 @@
 package census.domain;
 
+import census.domain.lib.HouseCategory;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,8 +26,9 @@ public class House {
     @Column(name = "apartment_no")
     private String apartmentNo;
 
-    @Column(name = "house_category_id")
-    private Integer houseCategoryId;
+    @ManyToOne
+    @JoinColumn(name = "house_category_id")
+    private HouseCategory houseCategory;
 
     @Column(name = "built_date")
     private LocalDate builtDate;

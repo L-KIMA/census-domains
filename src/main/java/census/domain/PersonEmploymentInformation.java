@@ -1,5 +1,6 @@
 package census.domain;
 
+import census.domain.lib.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,20 +34,24 @@ public class PersonEmploymentInformation {
     @Column(name = "organization_service_type")
     private String organizationServiceType;
 
-    @Column(name = "employment_type_id")
-    private Integer employmentTypeId;
+    @ManyToOne
+    @JoinColumn(name = "employment_type_id")
+    private EmploymentType employmentType;
 
     @Column(name = "employment_type_name")
     private String employmentTypeName;
 
-    @Column(name = "self_employment_type_id")
-    private Integer selfEmploymentTypeId;
+    @ManyToOne
+    @JoinColumn(name = "self_employment_type_id")
+    private SelfEmploymentType selfEmploymentType;
 
-    @Column(name = "agriculture_refuse_reason_id")
-    private Integer agricultureRefuseReasonId;
+    @ManyToOne
+    @JoinColumn(name = "agriculture_refuse_reason_id")
+    private AgricultureRefuseReason agricultureRefuseReason;
 
-    @Column(name = "product_type_id")
-    private Integer productTypeId;
+    @ManyToOne
+    @JoinColumn(name = "product_type_id")
+    private ProductType productType;
 
     @Column(name = "work_completed_for_compensation")
     private Boolean workCompletedForCompensation;
@@ -54,8 +59,9 @@ public class PersonEmploymentInformation {
     @Column(name = "personal_job_unable_do")
     private Boolean personalJobUnableDo;
 
-    @Column(name = "traying_to_finde_payd_work_answer_id")
-    private Integer trayingToFindePaydWorkAnswerId;
+    @ManyToOne
+    @JoinColumn(name = "traying_to_finde_payd_work_answer_id")
+    private TryingToFindPaidWorkAnswers tryingToFindPaidWorkAnswer;
 
     @Column(name = "could_you_start_working")
     private Boolean could_you_start_working;

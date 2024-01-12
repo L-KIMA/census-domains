@@ -1,5 +1,6 @@
 package census.domain;
 
+import census.domain.lib.LandPropertyType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,8 +37,9 @@ public class PersonAgricultureLands {
     @Column(name = "land_area")
     private Double landArea;
 
-    @Column(name = "land_property_type_id")
-    private Integer landPropertyTypeId;
+    @ManyToOne
+    @JoinColumn(name = "land_property_type_id")
+    private LandPropertyType landPropertyType;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "person_agriculture_land_id")

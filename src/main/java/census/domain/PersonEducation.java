@@ -1,5 +1,7 @@
 package census.domain;
 
+import census.domain.lib.LanguageKnowledgeLevel;
+import census.domain.lib.NativeLanguage;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,17 +20,20 @@ public class PersonEducation {
     @Column(name = "person_id")
     private Long personId;
 
-    @Column(name = "native_language_id")
-    private Integer nativeLanguageId;
+    @ManyToOne
+    @JoinColumn(name = "native_language_id")
+    private NativeLanguage nativeLanguage;
 
     @Column(name = "native_language_name")
     private String nativeLanguageName;
 
-    @Column(name = "language_speaking_level_id")
-    private Integer languageSpeakingLevelId;
+    @ManyToOne
+    @JoinColumn(name = "language_speaking_level_id")
+    private LanguageKnowledgeLevel languageSpeakingLevel;
 
-    @Column(name = "language_read_writing_level_id")
-    private Integer languageReadWritingLevelId;
+    @ManyToOne
+    @JoinColumn(name = "language_read_writing_level_id")
+    private LanguageKnowledgeLevel languageReadWritingLeve;
 
     @Column(name = "pre_school")
     private Boolean preSchool;
