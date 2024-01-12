@@ -1,5 +1,6 @@
 package census.domain;
 
+import census.domain.lib.Gender;
 import census.domain.lib.MarriageStatus;
 import census.domain.lib.Religion;
 import jakarta.persistence.*;
@@ -33,8 +34,9 @@ public class Person {
     @Column(name = "middle_name")
     private String middleName;
 
-    @Column(name = "gender_id")
-    private Integer genderId;
+    @ManyToOne
+    @JoinColumn(name = "gender_id")
+    private Gender gender;
 
     @Column(name = "personal_no")
     private String personalNo;
